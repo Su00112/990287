@@ -1,5 +1,53 @@
-Cho danh sách liên kết chứa N phần tử. Bạn hãy đảo ngược danh sách liên kết này và in danh sách trên một dòng.
-Input:
- Dòng đầu tiên chứa số nguyên N là số lượng phần tử trong danh sách liên kết. N dòng tiếp theo mỗi dòng chứa một số nguyên các phần tử theo thứ tự trong DSLK.
-Ouput:
-Một dòng gồm N số nguyên là các phần tử sau khi đã được đảo ngược.
+#Cho danh sách liên kết chứa N phần tử. Bạn hãy đảo ngược danh sách liên kết này và in danh sách trên một dòng.
+#Input:
+#Dòng đầu tiên chứa số nguyên N là số lượng phần tử trong danh sách liên kết. N dòng tiếp theo mỗi dòng chứa một số nguyên các phần tử theo thứ tự trong DSLK.
+#Ouput:
+#Một dòng gồm N số nguyên là các phần tử sau khi đã được đảo ngược.
+
+class SinglyLinkedNode:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class SinglyLinkedNodeChain:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+def insert_node(chain, item):
+    node = SinglyLinkedNode(item)
+    if chain.head is None:
+        chain.head = node
+    else:
+        chain.tail.next = node
+    chain.tail = node
+
+def reverse_chain(chain):
+    prev = None
+    cur = chain.head
+    while cur is not None:
+        nxt = cur.next
+        cur.next = prev
+        prev = cur
+        cur = nxt
+    chain.head = prev
+
+def print_chain(chain):
+    node = chain.head
+    while node is not None:
+        print(node.data, end=' ')
+        node = node.next
+    print()
+
+def main():
+    chain = SinglyLinkedNodeChain()
+    count = int(input())
+    for _ in range(count):
+        item = int(input())
+        insert_node(chain, item)
+
+    reverse_chain(chain)
+    print_chain(chain)
+
+if __name__ == "__main__":
+    main()
