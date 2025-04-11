@@ -1,0 +1,5 @@
+Cho danh sách liên kết chứa N phần tử. Bạn hãy đảo ngược danh sách liên kết này và in danh sách trên một dòng.
+Input:
+ Dòng đầu tiên chứa số nguyên N là số lượng phần tử trong danh sách liên kết. N dòng tiếp theo mỗi dòng chứa một số nguyên các phần tử theo thứ tự trong DSLK.
+Ouput:
+Một dòng gồm N số nguyên là các phần tử sau khi đã được đảo ngược.
